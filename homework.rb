@@ -79,7 +79,7 @@ end
 def longest string
 	string.max_by(&:length)
 end
-p longest(["123456789", "oh", "good", "grief"])
+# p longest(["123456789", "oh", "good", "grief"])
 # Write a method longest that accepts a single argument, an array of strings. The method should return the longest word in the array. In case of a tie, the method should return either.
 
 #---------------------------------------------------------------------------------
@@ -87,7 +87,13 @@ p longest(["123456789", "oh", "good", "grief"])
 # 7. check_prime? & get_primes
 
 # Write a method called check_prime? that will test whether a number is Prime. The method will return true if Prime, false if not.
-
+def check_prime (number) 
+	if number % 2 == 0
+			p "Prime"
+		else p "not prime"
+	end	
+end
+check_prime(3)
 # Write another method called get_primes that will print all the Primes up to an arbitrary limit. For example, if you invoke your method with get_primes 100, it will print all the Prime numbers up to and including 100. This method can call on the previous check_prime? method.
 
 # Hints/reminders/notes: A Prime number is a number that is not evenly divisible by another number except 1 and itself. To test whether a number is Prime, you only need to test as far as the square root of that number. This is advisable for optimization and testing large numbers.
