@@ -93,7 +93,20 @@ def check_prime (number)
 		else p "not prime"
 	end	
 end
-check_prime(3)
+
+def get_primes number
+	i = 0
+	primes = []
+
+	while i < number
+		if (i % 2) == 0
+			primes << (i)
+		end
+		i+=1
+	end
+	print primes
+end
+get_primes(50)
 # Write another method called get_primes that will print all the Primes up to an arbitrary limit. For example, if you invoke your method with get_primes 100, it will print all the Prime numbers up to and including 100. This method can call on the previous check_prime? method.
 
 # Hints/reminders/notes: A Prime number is a number that is not evenly divisible by another number except 1 and itself. To test whether a number is Prime, you only need to test as far as the square root of that number. This is advisable for optimization and testing large numbers.
