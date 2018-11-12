@@ -20,7 +20,7 @@ def transmogrifier num1, num2, num3
 		p (num1*num2)**num3
 end
 
-transmogrifier(5, 3, 2)
+# transmogrifier(5, 3, 2)
 # The transmogrified result of three numbers is the product (numbers multiplied together) of the first two numbers, raised to the power (exponentially) of the third number.
 
 # For example, the transmogrified result of 5, 3, and 2 is (5 times 3) to the power of 2 is 225.
@@ -31,7 +31,14 @@ transmogrifier(5, 3, 2)
 #---------------------------------------------------------------------------------
 
 # 3. Toonify
-
+def  toonify accent, sentence
+	if accent == "daffy"
+		p sentence.gsub(/s/, "th")
+	elsif accent == "elmer"
+		p sentence.gsub(/r/, "w")
+	end
+end
+toonify("elmer", "really clever Silly rabbit")
 # Write a method called toonify that takes two parameters, accent and sentence.
 
 # If accent is the string "daffy", return a modified version of sentence with all "s" replaced with "th".
