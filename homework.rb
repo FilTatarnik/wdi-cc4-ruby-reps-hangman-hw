@@ -9,7 +9,7 @@ def lengths words
 	words.map.with_index { |words| p words.length  }
 end
 
-# lengths(words)
+# lengths(words)     #<---answer
 
 #---------------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ def transmogrifier num1, num2, num3
 		p (num1*num2)**num3
 end
 
-# transmogrifier(5, 3, 2)
+# transmogrifier(5, 3, 2)        #<---answer
 # The transmogrified result of three numbers is the product (numbers multiplied together) of the first two numbers, raised to the power (exponentially) of the third number.
 
 # For example, the transmogrified result of 5, 3, and 2 is (5 times 3) to the power of 2 is 225.
@@ -38,7 +38,7 @@ def  toonify accent, sentence
 		p sentence.gsub(/r/, "w")
 	end
 end
-toonify("elmer", "really clever Silly rabbit")
+# toonify("elmer", "really clever Silly rabbit")         #<---answer
 # Write a method called toonify that takes two parameters, accent and sentence.
 
 # If accent is the string "daffy", return a modified version of sentence with all "s" replaced with "th".
@@ -49,13 +49,25 @@ toonify("elmer", "really clever Silly rabbit")
 #---------------------------------------------------------------------------------
 
 # 4. Word_reverse
+def word_reverse string
 
+	p string.split(" ").reverse 
+
+end
+
+word_reverse("This is a string")
 # Write a method word_reverse that accepts a single argument, a string. The method should return a string with the order of the words reversed. Don't worry about punctuation.
 
 #---------------------------------------------------------------------------------
 
 # 5. Letter_reverse
+# def letter_reverse string
 
+# 	p string.reverse 
+
+# end
+
+# letter_reverse("reversedString")
 # Write a method letter_reverse that accepts a single argument, a string. The method should maintain the order of words in the string but reverse the letters in each word. Don't worry about punctuation. This will be very similar to round 4 except you won't need to split them with a space.
 
 #---------------------------------------------------------------------------------
