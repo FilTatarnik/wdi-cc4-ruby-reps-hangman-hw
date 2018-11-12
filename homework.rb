@@ -64,18 +64,22 @@ end
 
 # 5. Letter_reverse
 def letter_reverse string
-
-	p string.reverse 
-
+	words_rev = string.split("").reverse().join("")
+	# words_rev.split(" ").reverse().join(" ")
+	# return words_rev
+	
 end
 
-letter_reverse("reversedString")
+# p letter_reverse("This is a reversed String")
 # Write a method letter_reverse that accepts a single argument, a string. The method should maintain the order of words in the string but reverse the letters in each word. Don't worry about punctuation. This will be very similar to round 4 except you won't need to split them with a space.
 
 #---------------------------------------------------------------------------------
 
 # 6. longest
-
+def longest string
+	string.max_by(&:length)
+end
+p longest(["123456789", "oh", "good", "grief"])
 # Write a method longest that accepts a single argument, an array of strings. The method should return the longest word in the array. In case of a tie, the method should return either.
 
 #---------------------------------------------------------------------------------
