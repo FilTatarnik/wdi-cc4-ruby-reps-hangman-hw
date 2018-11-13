@@ -121,18 +121,25 @@
 
 
 class Word
-	# attr_accessor :guesses, :letters
+	attr_accessor :attemps, :word_array, :game_word, :guessed_letters, 
+	:letters
 	def initialize
 		@attempts = 5
 		@word_array = ["snowboarding", "playstation", "reuben", "josh", "farts", "sonos"]
 		@game_word = @word_array[rand(@word_array.length)]
-		@guesses = []
+		@hidden_word = []
+		@guessed_letters = []
 		@letters = []
-		# @word = word
 	end
 
-	def display_word
-		@game_word = "_" * @game_word
+	def init_hidden_word
+		@game_word.each_char do |x|
+			if x == " "
+				@hidden_word.push(" ")
+			else
+				@hidden_word.push("_")
+			end
+		end
 		# it needs to display the randomly selected work but replace the letters with _'s unless they've been guessed
 	end
 
@@ -144,6 +151,10 @@ class Word
 
 	end
 
+	def add_to_attemps
+		@attemps = @attemps =+ 1
+	end
+
 	def render
 
 	end
@@ -151,7 +162,7 @@ class Word
 	  def start
 	  puts "Welcome to Hangman"
 	  puts "Guess the word: "
-	  puts @game_word
+	  init_hidden_word
 	  loop do 
 	  	input = gets.chomp
 
@@ -159,7 +170,14 @@ class Word
 	  		print "You Win!"
 	  		break
 	  	else print "Wrong Guess"
-	  		
+	  		add_to_attemps
+	  		while @attemps != 6
+	  			puts "Keep going"
+	  			input == gets.chomp
+	  				if input == @game_word
+	  					print "You win!"
+	  				end
+	  			end
 	  		 break	
 	  	end
 	  end
