@@ -118,20 +118,21 @@
 #------------PART 2 HANGMAN GAME---------------
 
 # Make a hangman ruby console game. You must have a Word class. You should also have a word_array containing a couple dozen words to randomly choose from. And then use loop for the main game logic with repeated guessing, and break when the game is over.
-word_array = ["snowboarding", "playstation", "reuben", "josh", "farts", "sonos"]
+
 
 class Word
 	# attr_accessor :guesses, :letters
 	def initialize
+		@attempts = 5
+		@word_array = ["snowboarding", "playstation", "reuben", "josh", "farts", "sonos"]
+		@game_word = @word_array[rand(@word_array.length)]
 		@guesses = []
 		@letters = []
 		# @word = word
 	end
 
 	def display_word
-		underlined_word = word_array.sample
-		split_word = underlined_word.split("")
-		print split_word
+		@game_word = "_" * @game_word
 		# it needs to display the randomly selected work but replace the letters with _'s unless they've been guessed
 	end
 
@@ -147,37 +148,54 @@ class Word
 
 	end
 
+	  def start
+	  puts "Welcome to Hangman"
+	  puts "Guess the word: "
+	  puts @game_word
+	  loop do 
+	  	input = gets.chomp
+
+	  	if input == @game_word
+	  		print "You Win!"
+	  		break
+	  	else print "Wrong Guess"
+	  		
+	  		 break	
+	  	end
+	  end
 
 end
+
+
+
+# loop do
+# 	print "wanna play? "
+# 	input = gets.chomp
+
+# 	if input == "yes"
+# 		# Word.display_word()
+# 		underlined_word = word_array.sample
+# 		split_word = "_" * underlined_word.length
+# 		#make the letters underlines
+# 		#gets.chomp another input that's like, which letter? then user inputs letter and after user inputs letter the function that checks if any of the strings in the array are == to the letter inputted, print out the word and print it out with the one letter that you guessed not being an underline?!?!?!?!?!?/! or you guessed wrong, adding one to the guessed letters thing above? 
+# 		p split_word
+# 		p "// Now guess a letter"
+# 		input = gets.chomp
+# 		if input == split_word
+# 			print "You got a letter"
+# 		else 
+# 			print "Guessed the wrong letter"
+# 		end
+
+# 		break
+# 	else input == "no"
+# 		print "fine, you lose"
+# 		break
+# 	end
+# end
 
 game = Word.new
-
-loop do
-	print "wanna play? "
-	input = gets.chomp
-
-	if input == "yes"
-		# Word.display_word()
-		underlined_word = word_array.sample
-		split_word = underlined_word.split("")
-		#make the letters underlines
-		#gets.chomp another input that's like, which letter? then user inputs letter and after user inputs letter the function that checks if any of the strings in the array are == to the letter inputted, print out the word and print it out with the one letter that you guessed not being an underline?!?!?!?!?!?/! or you guessed wrong, adding one to the guessed letters thing above? 
-		print split_word
-		puts "// Now guess a letter"
-		input_letter = gets.chomp
-		if input_letter == underlined_word
-			print "You got one"
-		else 
-			print "Guessed the wrong letter"
-		end
-
-		break
-	else input == "no"
-		print "fine, you lose"
-		break
-	end
-end
-
+game.start
 #type Word.new 
 #word class takes random word from array
 #word class has attr that display x amount of underlines that represent the letters
@@ -185,4 +203,4 @@ end
 #user gives input
 # if the user guessed a letter right then return the _'s but with the guessed letter instead
 #if user guesses wrong 3 times lose method runs that prints you lose
-#??
+end
