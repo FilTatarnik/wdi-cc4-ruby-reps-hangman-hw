@@ -133,15 +133,27 @@ class Word
 	end
 
 	def init_hidden_word
-		@game_word.each_char do |x|
-			if x == " "
-				@hidden_word.push(" ")
+		@game_word.each_char do |hidden|
+			if hidden == ""
+				@hidden_word.push("_")
 			else
 				@hidden_word.push("_")
 			end
 		end
-		# it needs to display the randomly selected work but replace the letters with _'s unless they've been guessed
+		# @hidden_word.push(@game_word)
+
+		puts @hidden_word
 	end
+
+		# @game_word.each_char do |x|
+		# 	if x == ""
+		# 		@hidden_word.push("_")
+		# 	else
+		# 		@hidden_word.push("_")
+		# 	end
+		# end
+		# it needs to display the randomly selected work but replace the letters with _'s unless they've been guessed
+	# end
 
 	def guessed_letters
 		# @letters += #user inputted letter
@@ -158,6 +170,9 @@ class Word
 	def render
 
 	end
+
+
+
 
 	  def start
 	  puts "Welcome to Hangman"
@@ -176,6 +191,8 @@ class Word
 	  			input == gets.chomp
 	  				if input == @game_word
 	  					print "You win!"
+	  				else 
+	  					puts "5 more tries"
 	  				end
 	  			end
 	  		 break	
